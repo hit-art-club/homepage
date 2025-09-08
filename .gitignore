@@ -21,3 +21,7 @@ frontend/.env.local
 # old static (保険)
 docs/
 site/
+
+# Next.js build outputs
+frontend/.next/
+.next/
