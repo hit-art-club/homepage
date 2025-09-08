@@ -4,16 +4,17 @@ import { revalidatePath } from "next/cache";
 const SECRET = process.env.REVALIDATE_SECRET!;
 
 export async function POST(req: NextRequest) {
-  const urlSecret = req.nextUrl.searchParams.get("secret");
-  if (!SECRET || urlSecret !== SECRET) {
+  // 認証
+  const secret = req.nextUrl.searchParams.get("secret");
+  if (!SECRET || secret !== SECRET) {
     return NextResponse.json({ ok: false, reason: "unauthorized" }, { status: 401 });
   }
 
-  // microCMSのWebhookボディをゆるく解釈（id の取り出しを複数パターンで）
+  // microCMS のペイロードをゆるく解釈
   let body: any = {};
   try { body = await req.json(); } catch {}
-
-  const api = body.api || body.endpoint || body.model || "posts";
+  const api =
+    body.api || body.endpoint || body.model || body.contents?.[0]?.api || "";
   const id =
     body.id ||
     body.contentId ||
@@ -22,10 +23,20 @@ export async function POST(req: NextRequest) {
     body.item?.id ||
     "";
 
-  // まず一覧を再生成
-  revalidatePath("/news");
-  // id が取れたら詳細も再生成
-  if (api === "posts" && id) revalidatePath(`/news/${id}`);
+  // posts（ニュース）
+  if (api === "posts") {
+    revalidatePath("/news");
+    if (id) revalidatePath(`/news/${id}`);
+  }
+
+  // gallery（写真）★今回追加
+  if (api === "gallery") {
+    revalidatePath("/photos");
+    if (id) revalidatePath(`/photos/${id}`);
+  }
+
+  // （任意）固定ページをCMS化しているなら
+  // if (api === "pages") revalidatePath("/about");
 
   return NextResponse.json({ ok: true, api, id });
 }
