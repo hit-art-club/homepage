@@ -18,6 +18,6 @@ frontend/.env.local
 # mac
 .DS_Store
 
-# eleventy old (念のため)
+# old static (保険)
 docs/
 site/
