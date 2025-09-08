@@ -1,25 +1,24 @@
 import { client } from "../../lib/microcms";
+import NewsCard from "../../components/NewsCard";
+
+export const revalidate = 60;
 
 type Post = { id: string; title: string; publishedAt?: string };
 
-export const revalidate = 60; // 1分ごとに再生成
-
-export default async function NewsList() {
+export default async function NewsIndex() {
   const data = await client.get<{ contents: Post[] }>({
     endpoint: "posts",
-    queries: { limit: 10, orders: "-publishedAt" },
+    queries: { limit: 50, orders: "-publishedAt" },
   });
 
   return (
-    <main style={{ padding: "2rem" }}>
-      <h1>News</h1>
-      <ul>
+    <>
+      <h1 className="text-3xl font-bold mb-6">News</h1>
+      <div className="grid md:grid-cols-2 gap-6">
         {data.contents.map((p) => (
-          <li key={p.id} style={{ margin: "0.5rem 0" }}>
-            <a href={`/news/${p.id}`}>{p.title}</a>
-          </li>
+          <NewsCard key={p.id} id={p.id} title={p.title} date={p.publishedAt} />
         ))}
-      </ul>
-    </main>
+      </div>
+    </>
   );
 }
