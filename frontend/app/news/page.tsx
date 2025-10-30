@@ -12,13 +12,15 @@ export default async function NewsIndex() {
   });
 
   return (
-    <>
-      <h1 className="text-3xl font-bold mb-6">News</h1>
-      <div className="grid md:grid-cols-2 gap-6">
-        {data.contents.map((p) => (
-          <NewsCard key={p.id} id={p.id} title={p.title} date={p.publishedAt} />
-        ))}
+    <div className="px-4 py-24 sm:px-12 bg-white">
+      <div className="mx-auto max-w-6xl">
+        <h1 className="text-4xl font-bold mb-12 text-slate-900">ニュース</h1>
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {data.contents.map((p) => (
+            <NewsCard key={p.id} id={p.id} title={p.title} date={p.publishedAt} />
+          ))}
+        </div>
       </div>
-    </>
+    </div>
   );
 }

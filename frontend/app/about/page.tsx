@@ -15,9 +15,11 @@ export default async function About() {
 
   if (!page) {
     return (
-      <article>
-        <h1 className="text-3xl font-bold mb-4">About</h1>
-        <p>「Pages」に slug=about の公開コンテンツが見つかりません。</p>
+      <article className="px-4 py-24 sm:px-12">
+        <div className="mx-auto max-w-4xl">
+          <h1 className="text-4xl font-bold mb-6">部活について</h1>
+          <p className="text-slate-600">「Pages」に slug=about の公開コンテンツが見つかりません。</p>
+        </div>
       </article>
     );
   }
@@ -26,17 +28,19 @@ export default async function About() {
   const isHtml = !!page.body && page.body.includes("<");
 
   return (
-    <article>
-      <h1 className="text-3xl font-bold mb-4">{page.title}</h1>
+    <article className="px-4 py-24 sm:px-12 bg-white">
+      <div className="mx-auto max-w-4xl">
+        <h1 className="text-4xl font-bold mb-8 text-slate-900">{page.title}</h1>
 
-      {isHtml ? (
-        <div
-          className="prose prose-neutral max-w-none"
-          dangerouslySetInnerHTML={{ __html: page.body! }}
-        />
-      ) : (
-        <p className="whitespace-pre-wrap leading-7">{page.body}</p>
-      )}
+        {isHtml ? (
+          <div
+            className="prose prose-neutral prose-lg max-w-none text-slate-600"
+            dangerouslySetInnerHTML={{ __html: page.body! }}
+          />
+        ) : (
+          <p className="whitespace-pre-wrap leading-8 text-slate-600 text-base">{page.body}</p>
+        )}
+      </div>
     </article>
   );
 }
