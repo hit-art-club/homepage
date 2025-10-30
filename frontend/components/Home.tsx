@@ -28,18 +28,18 @@ export default function Home() {
   return (
     <>
       {/* Hero Section */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-blue-50 via-white to-slate-50 section-padding">
+      <section className="relative overflow-hidden bg-gradient-to-br from-teal-50 via-white to-slate-50 section-padding">
         <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-20 right-20 w-72 h-72 bg-blue-primary rounded-full mix-blend-multiply filter blur-3xl"></div>
-          <div className="absolute bottom-20 left-20 w-72 h-72 bg-teal-secondary rounded-full mix-blend-multiply filter blur-3xl"></div>
+          <div className="absolute top-20 right-20 w-72 h-72 bg-primary rounded-full mix-blend-multiply filter blur-3xl"></div>
+          <div className="absolute bottom-20 left-20 w-72 h-72 bg-secondary rounded-full mix-blend-multiply filter blur-3xl"></div>
         </div>
 
         <div className="relative container mx-auto max-w-4xl px-4">
           {/* Badge */}
           <div className="flex justify-center mb-8">
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-blue-100 rounded-full">
-              <Sparkles className="w-4 h-4 text-blue-primary" />
-              <span className="text-sm font-semibold text-blue-primary">
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-teal-100 rounded-full">
+              <Sparkles className="w-4 h-4 text-primary" />
+              <span className="text-sm font-semibold text-primary">
                 Art Club
               </span>
             </div>
@@ -90,9 +90,9 @@ export default function Home() {
               return (
                 <div
                   key={idx}
-                  className="card p-8 hover:shadow-lg transition-all hover:border-blue-primary group"
+                  className="card p-8 hover:shadow-lg transition-all hover:border-primary group"
                 >
-                  <div className="inline-flex items-center justify-center w-12 h-12 rounded-lg bg-blue-100 text-blue-primary group-hover:bg-blue-primary group-hover:text-white transition-all mb-6">
+                  <div className="inline-flex items-center justify-center w-12 h-12 rounded-lg bg-teal-100 text-primary group-hover:bg-primary group-hover:text-white transition-all mb-6">
                     <Icon className="w-6 h-6" />
                   </div>
                   <h3 className="text-xl font-bold text-foreground mb-3">

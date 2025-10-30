@@ -191,49 +191,60 @@ button {
   }
 
   .btn-primary {
-    background-color: #1e40af;
-    color: white;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-  }
-
-  .btn-primary:hover {
-    background-color: #1e3a8a;
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-  }
-
-  .btn-secondary {
     background-color: #0d9488;
     color: white;
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
   }
 
-  .btn-secondary:hover {
-    background-color: #0f766e;
+  .btn-primary:hover {
+    background-color: #086d6a;
     box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
   }
 
-  .btn-accent {
+  .btn-secondary {
     background-color: #ea580c;
     color: white;
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
   }
 
-  .btn-accent:hover {
+  .btn-secondary:hover {
     background-color: #c2410c;
     box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
   }
 
+  .btn-tertiary {
+    background-color: #9333ea;
+    color: white;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  }
+
+  .btn-tertiary:hover {
+    background-color: #7e22ce;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  }
+
+  .btn-accent {
+    background-color: #f59e0b;
+    color: white;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  }
+
+  .btn-accent:hover {
+    background-color: #d97706;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  }
+
   .btn-outline {
-    border: 2px solid #1e40af;
-    color: #1e40af;
+    border: 2px solid #0d9488;
+    color: #0d9488;
   }
 
   .btn-outline:hover {
-    background-color: #eff6ff;
+    background-color: #f0fdfa;
   }
 
   .btn-ghost {
-    color: #1e40af;
+    color: #0d9488;
   }
 
   .btn-ghost:hover {
@@ -251,18 +262,23 @@ button {
   }
 
   .badge-primary {
-    background-color: #dbeafe;
-    color: #1e3a8a;
-  }
-
-  .badge-secondary {
     background-color: #d0f6f2;
     color: #0d4d48;
   }
 
-  .badge-accent {
+  .badge-secondary {
     background-color: #fed6b8;
     color: #7a2a06;
+  }
+
+  .badge-tertiary {
+    background-color: #f3e8ff;
+    color: #581c87;
+  }
+
+  .badge-accent {
+    background-color: #fef3c7;
+    color: #92400e;
   }
 
   /* Card */
@@ -485,13 +501,21 @@ button {
 }
 
 .gradient-primary-teal {
-  background: linear-gradient(135deg, #1e40af 0%, #0d9488 100%);
+  background: linear-gradient(135deg, #0d9488 0%, #086d6a 100%);
 }
 
 .gradient-teal-orange {
   background: linear-gradient(135deg, #0d9488 0%, #ea580c 100%);
 }
 
-.gradient-blue-orange {
-  background: linear-gradient(135deg, #1e40af 0%, #ea580c 100%);
+.gradient-orange-purple {
+  background: linear-gradient(135deg, #ea580c 0%, #9333ea 100%);
+}
+
+.gradient-purple-pink {
+  background: linear-gradient(135deg, #9333ea 0%, #ec4899 100%);
+}
+
+.gradient-rainbow-art {
+  background: linear-gradient(90deg, #0d9488 0%, #ea580c 25%, #9333ea 50%, #ec4899 75%, #06b6d4 100%);
 }
