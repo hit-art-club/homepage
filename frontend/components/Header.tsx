@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useState } from 'react';
+import { Palette } from 'lucide-react';
 
 const nav = [
   { href: '/', label: 'ホーム' },
@@ -20,34 +21,35 @@ export default function Header() {
     pathname === href || (href !== '/' && pathname.startsWith(href));
 
   return (
-    <header className="sticky top-0 z-50 bg-white border-b border-border/40">
-      <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        <div className="flex h-14 items-center justify-between">
-          {/* ロゴ - シンプルなアイコン + テキスト */}
-          <Link href="/" className="flex items-center gap-2 group">
-            <div className="w-8 h-8 rounded-lg bg-foreground flex items-center justify-center group-hover:bg-primary transition-colors duration-200">
-              <span className="text-white text-sm font-bold">🎨</span>
-            </div>
-            <span className="text-lg font-semibold text-foreground group-hover:text-primary transition-colors duration-200">
-              美術部
+    <header className="sticky top-0 z-50 border-b border-border/40 bg-white/80 backdrop-blur">
+      <div className="mx-auto max-w-7xl px-6 lg:px-12">
+        <div className="flex items-center justify-between py-4 md:py-6">
+          {/* ロゴ・ブランディング */}
+          <Link href="/" className="flex items-center gap-3 group">
+            <span className="inline-flex h-11 w-11 items-center justify-center rounded-full bg-primary/10 text-primary transition-colors duration-200 group-hover:bg-primary group-hover:text-primary-foreground">
+              <Palette className="h-5 w-5" />
             </span>
+            <div className="flex flex-col leading-tight">
+              <span className="text-lg font-semibold text-foreground transition-colors duration-200 group-hover:text-primary">
+                美術部
+              </span>
+              <span className="text-xs font-medium uppercase tracking-[0.35em] text-muted-foreground">
+                Hitotsubashi × Tsuda
+              </span>
+            </div>
             <span className="sr-only">Hitotsubashi × Tsuda Art Club</span>
           </Link>
 
           {/* PC ナビゲーション */}
-          <nav className="hidden md:flex items-center gap-6">
+          <nav className="hidden md:flex items-center gap-2 rounded-full bg-white/70 p-1 shadow-sm ring-1 ring-slate-900/5 backdrop-blur">
             {nav.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
-                className={`text-sm font-medium transition-colors duration-200 relative ${
+                className={`rounded-full px-4 py-2 text-sm font-medium transition-colors duration-200 ${
                   isActive(item.href)
-                    ? 'text-foreground'
-                    : 'text-muted-foreground hover:text-foreground'
-                } ${
-                  isActive(item.href)
-                    ? 'after:absolute after:bottom-0 after:left-0 after:right-0 after:h-0.5 after:bg-primary after:rounded-full'
-                    : ''
+                    ? 'bg-slate-900 text-white shadow-sm'
+                    : 'text-muted-foreground hover:bg-white hover:text-foreground'
                 }`}
               >
                 {item.label}
@@ -57,7 +59,7 @@ export default function Header() {
 
           {/* モバイルメニューボタン */}
           <button
-            className="md:hidden inline-flex items-center justify-center rounded-lg p-2 text-foreground hover:bg-secondary transition-colors duration-200"
+            className="inline-flex items-center justify-center rounded-full p-2 text-foreground transition-colors duration-200 hover:bg-slate-200 md:hidden"
             aria-label="メニューを開く"
             onClick={() => setOpen((v) => !v)}
           >
@@ -79,16 +81,16 @@ export default function Header() {
 
         {/* モバイルメニュー */}
         {open && (
-          <div className="md:hidden border-t border-border/40 py-4 animate-in fade-in duration-200">
+          <div className="animate-in fade-in duration-200 border-t border-border/40 py-4 md:hidden">
             <nav className="flex flex-col gap-2">
               {nav.map((item) => (
                 <Link
                   key={item.href}
                   href={item.href}
-                  className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors duration-200 ${
+                  className={`rounded-full px-4 py-2 text-sm font-medium transition-colors duration-200 ${
                     isActive(item.href)
-                      ? 'bg-foreground text-white'
-                      : 'text-muted-foreground hover:bg-secondary hover:text-foreground'
+                      ? 'bg-slate-900 text-white shadow-sm'
+                      : 'text-muted-foreground hover:bg-slate-200 hover:text-foreground'
                   }`}
                   onClick={() => setOpen(false)}
                 >
