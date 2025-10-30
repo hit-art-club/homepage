@@ -1,28 +1,36 @@
-import { client } from "../../../lib/microcms";
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
 
-export const revalidate = 60;
-
-export default async function NewsDetail(
-  { params }: { params: Promise<{ id: string }> }
-) {
-  const { id } = await params;
-  const post = await client.get<any>({ endpoint: "posts", contentId: id });
-
-  return (
-    <article className="px-4 py-24 sm:px-12 sm:py-32 bg-white">
-      <div className="mx-auto max-w-4xl">
-        <Link href="/news" className="inline-flex items-center gap-2 text-sm font-semibold text-primary hover:text-blue-700 transition mb-8">
-          <ArrowLeft className="h-5 w-5" />
-          ニュースに戻る
-        </Link>
-        <h1 className="text-5xl font-bold mb-6 text-slate-900">{post.title}</h1>
-        <div className="prose prose-neutral prose-lg max-w-none text-slate-600"
-             dangerouslySetInnerHTML={{ __html: post.body || "" }} />
-      </div>
-    </article>
-  );
+interface Props {
+  params: Promise<{ id: string }>;
 }
 
+export async function generateStaticParams() {
+  return [];
+}
 
+export const revalidate = 300;
+
+export default async function NewsDetailPage({ params }: Props) {
+  const { id } = await params;
+
+  return (
+    <div className="min-h-screen bg-white">
+      <div className="container mx-auto max-w-3xl px-4 py-24">
+        <Link
+          href="/news"
+          className="inline-flex items-center gap-2 text-blue-primary hover:text-blue-dark transition-colors mb-8"
+        >
+          <ArrowLeft className="w-4 h-4" />
+          ニュース一覧に戻る
+        </Link>
+        <h1 className="text-4xl font-bold text-foreground mb-4">
+          ニュース詳細
+        </h1>
+        <p className="text-slate-600 text-lg">
+          ID: {id} - microCMS連携準備中
+        </p>
+      </div>
+    </div>
+  );
+}
