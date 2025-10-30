@@ -1,67 +1,43 @@
 export default function Hero() {
   return (
-    <section className="relative overflow-hidden bg-gradient-to-br from-background to-secondary pt-16 pb-24 md:pt-32 md:pb-40">
-      {/* Background Image with Overlay */}
+    <section className="relative overflow-hidden bg-cover bg-center bg-no-repeat h-96 md:h-[500px] lg:h-[600px] w-full">
+      {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <img
           src="/hero.jpg"
           alt="Art Club Hero"
-          className="w-full h-full object-cover opacity-20"
+          className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-background/30 via-transparent to-background" />
+        {/* Dark Overlay for Text Readability */}
+        <div className="absolute inset-0 bg-black/40" />
       </div>
 
       {/* Content */}
-      <div className="relative z-10 mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center">
-        {/* Main Heading */}
-        <h1 className="text-5xl sm:text-6xl md:text-7xl font-bold tracking-tight text-foreground mb-6 leading-tight">
-          一橋・津田塾大学
-          <br />
-          <span className="bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent">
-            美術部
-          </span>
+      <div className="relative z-10 h-full flex flex-col items-center justify-center px-4 sm:px-6 lg:px-8 text-center">
+        {/* Main Heading - White text */}
+        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-4 leading-tight drop-shadow-lg">
+          美術部へようこそ
         </h1>
 
         {/* Subtitle */}
-        <p className="text-lg sm:text-xl md:text-2xl text-muted-foreground max-w-2xl mx-auto mb-10 font-light">
-          創造的な表現と芸術の交差点。
-          <br className="hidden sm:block" />
-          あなたの才能を発揮する場所。
+        <p className="text-lg sm:text-xl md:text-2xl text-white/90 max-w-2xl mx-auto mb-8 font-light drop-shadow-md">
+          創造性あふれる仲間たちと一緒に、アートの世界を探求しよう
         </p>
 
         {/* CTA Buttons */}
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
           <a
             href="/about"
-            className="px-8 py-3 rounded-full bg-primary text-primary-foreground font-semibold hover:shadow-lg hover:scale-105 transition-all duration-200 cursor-pointer"
+            className="px-8 py-3 rounded-full bg-white text-foreground font-semibold hover:bg-white/90 hover:shadow-lg transition-all duration-200 cursor-pointer"
           >
-            部活紹介を見る
+            部活について詳しく
           </a>
           <a
             href="/photos"
-            className="px-8 py-3 rounded-full bg-secondary text-foreground font-semibold hover:bg-muted hover:shadow-lg hover:scale-105 transition-all duration-200 border border-border cursor-pointer"
+            className="px-8 py-3 rounded-full bg-white/20 backdrop-blur-md text-white font-semibold border border-white/50 hover:bg-white/30 hover:shadow-lg transition-all duration-200 cursor-pointer"
           >
             ギャラリーを見る
           </a>
-        </div>
-      </div>
-
-      {/* Scroll Indicator */}
-      <div className="relative z-10 flex justify-center mt-16">
-        <div className="animate-bounce">
-          <svg
-            className="w-6 h-6 text-muted-foreground"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M19 14l-7 7m0 0l-7-7m7 7V3"
-            />
-          </svg>
         </div>
       </div>
     </section>

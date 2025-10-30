@@ -20,30 +20,34 @@ export default function Header() {
     pathname === href || (href !== '/' && pathname.startsWith(href));
 
   return (
-    <header className="sticky top-0 z-50 bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/80 border-b border-border">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="flex h-16 items-center justify-between">
-          {/* ロゴ */}
-          <Link href="/" className="flex items-center group">
-            <div className="flex flex-col">
-              <span className="text-lg font-semibold tracking-tight text-foreground group-hover:text-primary transition-colors">
-                HTAC
-              </span>
-              <span className="text-[10px] text-muted-foreground">Art Club</span>
+    <header className="sticky top-0 z-50 bg-white border-b border-border/40">
+      <div className="mx-auto max-w-7xl px-6 lg:px-8">
+        <div className="flex h-14 items-center justify-between">
+          {/* ロゴ - シンプルなアイコン + テキスト */}
+          <Link href="/" className="flex items-center gap-2 group">
+            <div className="w-8 h-8 rounded-lg bg-foreground flex items-center justify-center group-hover:bg-primary transition-colors duration-200">
+              <span className="text-white text-sm font-bold">🎨</span>
             </div>
+            <span className="text-lg font-semibold text-foreground group-hover:text-primary transition-colors duration-200">
+              美術部
+            </span>
             <span className="sr-only">Hitotsubashi × Tsuda Art Club</span>
           </Link>
 
           {/* PC ナビゲーション */}
-          <nav className="hidden md:flex items-center gap-1">
+          <nav className="hidden md:flex items-center gap-6">
             {nav.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
-                className={`px-4 py-2 text-sm font-medium rounded-lg transition-all duration-200 ${
+                className={`text-sm font-medium transition-colors duration-200 relative ${
                   isActive(item.href)
-                    ? 'bg-primary text-primary-foreground'
-                    : 'text-foreground hover:bg-secondary text-muted-foreground hover:text-foreground'
+                    ? 'text-foreground'
+                    : 'text-muted-foreground hover:text-foreground'
+                } ${
+                  isActive(item.href)
+                    ? 'after:absolute after:bottom-0 after:left-0 after:right-0 after:h-0.5 after:bg-primary after:rounded-full'
+                    : ''
                 }`}
               >
                 {item.label}
@@ -53,7 +57,7 @@ export default function Header() {
 
           {/* モバイルメニューボタン */}
           <button
-            className="md:hidden inline-flex items-center justify-center rounded-lg p-2 text-muted-foreground hover:bg-secondary hover:text-foreground transition-colors"
+            className="md:hidden inline-flex items-center justify-center rounded-lg p-2 text-foreground hover:bg-secondary transition-colors duration-200"
             aria-label="メニューを開く"
             onClick={() => setOpen((v) => !v)}
           >
@@ -75,15 +79,15 @@ export default function Header() {
 
         {/* モバイルメニュー */}
         {open && (
-          <div className="md:hidden border-t border-border py-4 animate-in fade-in slide-in-from-top-2 duration-200">
-            <nav className="flex flex-col gap-1">
+          <div className="md:hidden border-t border-border/40 py-4 animate-in fade-in duration-200">
+            <nav className="flex flex-col gap-2">
               {nav.map((item) => (
                 <Link
                   key={item.href}
                   href={item.href}
-                  className={`px-4 py-3 rounded-lg text-sm font-medium transition-all duration-200 ${
+                  className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors duration-200 ${
                     isActive(item.href)
-                      ? 'bg-primary text-primary-foreground'
+                      ? 'bg-foreground text-white'
                       : 'text-muted-foreground hover:bg-secondary hover:text-foreground'
                   }`}
                   onClick={() => setOpen(false)}
