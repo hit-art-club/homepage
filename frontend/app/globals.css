@@ -11,99 +11,128 @@ a { color: inherit; text-decoration: none; }
 
 :root {
   --font-size: 16px;
-  /* Apple風: Clean white background */
+  /* Professional Design: Premium backgrounds and text */
   --background: #ffffff;
-  --foreground: #1d1d1f;
+  --foreground: #0f1419;
   --card: #ffffff;
-  --card-foreground: #1d1d1f;
+  --card-foreground: #0f1419;
   --popover: #ffffff;
-  --popover-foreground: #1d1d1f;
-  /* Apple Blue as primary */
-  --primary: #0071e3;
+  --popover-foreground: #0f1419;
+
+  /* Primary: Rich deep blue for CTA and emphasis */
+  --primary: #1e40af;
   --primary-foreground: #ffffff;
-  /* Subtle secondary */
-  --secondary: #f5f5f7;
-  --secondary-foreground: #1d1d1f;
-  /* Muted grays (Apple-style) */
-  --muted: #e5e5e7;
-  --muted-foreground: #86868b;
-  /* Light accent gray */
-  --accent: #f5f5f7;
-  --accent-foreground: #1d1d1f;
-  /* Red for destructive actions */
-  --destructive: #ff3b30;
+
+  /* Secondary: Professional teal accent */
+  --secondary: #0d9488;
+  --secondary-foreground: #ffffff;
+
+  /* Tertiary: Warm accent for highlights */
+  --tertiary: #ea580c;
+  --tertiary-foreground: #ffffff;
+
+  /* Neutral grays for professional look */
+  --muted: #e2e8f0;
+  --muted-foreground: #475569;
+
+  /* Light background sections */
+  --accent: #f8fafc;
+  --accent-foreground: #0f1419;
+
+  /* Destructive red */
+  --destructive: #dc2626;
   --destructive-foreground: #ffffff;
-  /* Subtle borders */
-  --border: rgba(0, 0, 0, 0.08);
+
+  /* Borders - subtle but visible */
+  --border: #e2e8f0;
   --input: #ffffff;
-  --input-background: #f5f5f7;
-  --switch-background: #34c759;
+  --input-background: #f8fafc;
+  --switch-background: #0d9488;
+
+  /* Typography weights */
   --font-weight-medium: 600;
   --font-weight-normal: 400;
-  --ring: #0071e3;
-  /* Chart colors - Apple-inspired */
-  --chart-1: #0071e3;
-  --chart-2: #34c759;
-  --chart-3: #ff9500;
-  --chart-4: #ff3b30;
-  --chart-5: #af52de;
-  /* Rounded corners - Apple style (subtle) */
-  --radius: 0.75rem;
-  --sidebar: #f5f5f7;
-  --sidebar-foreground: #1d1d1f;
-  --sidebar-primary: #0071e3;
+  --ring: #1e40af;
+
+  /* Chart colors - Professional palette */
+  --chart-1: #1e40af;
+  --chart-2: #0d9488;
+  --chart-3: #ea580c;
+  --chart-4: #dc2626;
+  --chart-5: #8b5cf6;
+
+  /* Rounded corners - Modern subtle radius */
+  --radius: 0.5rem;
+
+  /* Sidebar colors */
+  --sidebar: #f8fafc;
+  --sidebar-foreground: #0f1419;
+  --sidebar-primary: #1e40af;
   --sidebar-primary-foreground: #ffffff;
-  --sidebar-accent: #e5e5e7;
-  --sidebar-accent-foreground: #1d1d1f;
-  --sidebar-border: #d5d5d7;
-  --sidebar-ring: #0071e3;
+  --sidebar-accent: #e2e8f0;
+  --sidebar-accent-foreground: #0f1419;
+  --sidebar-border: #cbd5e1;
+  --sidebar-ring: #1e40af;
 }
 
 .dark {
-  /* Apple Dark Mode colors */
-  --background: #000000;
-  --foreground: #f5f5f7;
-  --card: #1d1d1f;
-  --card-foreground: #f5f5f7;
-  --popover: #1d1d1f;
-  --popover-foreground: #f5f5f7;
-  /* Apple Blue (lighter in dark mode) */
-  --primary: #0a84ff;
-  --primary-foreground: #000000;
-  /* Dark secondary */
-  --secondary: #2a2a2c;
-  --secondary-foreground: #f5f5f7;
+  /* Professional Dark Mode */
+  --background: #0f1419;
+  --foreground: #f1f5f9;
+  --card: #1e293b;
+  --card-foreground: #f1f5f9;
+  --popover: #1e293b;
+  --popover-foreground: #f1f5f9;
+
+  /* Primary: Lighter blue for dark mode */
+  --primary: #3b82f6;
+  --primary-foreground: #0f1419;
+
+  /* Secondary: Bright teal */
+  --secondary: #14b8a6;
+  --secondary-foreground: #0f1419;
+
+  /* Tertiary: Warm accent */
+  --tertiary: #f97316;
+  --tertiary-foreground: #0f1419;
+
   /* Muted grays for dark mode */
-  --muted: #424245;
-  --muted-foreground: #a1a1a6;
-  /* Dark accent */
-  --accent: #1d1d1f;
-  --accent-foreground: #f5f5f7;
-  /* Red (slightly lighter for dark mode) */
-  --destructive: #ff453a;
-  --destructive-foreground: #000000;
-  /* Subtle borders for dark */
-  --border: rgba(255, 255, 255, 0.1);
-  --input: #1d1d1f;
-  --input-background: #2a2a2c;
-  --switch-background: #30b0c0;
+  --muted: #334155;
+  --muted-foreground: #cbd5e1;
+
+  /* Dark accent backgrounds */
+  --accent: #1e293b;
+  --accent-foreground: #f1f5f9;
+
+  /* Destructive red */
+  --destructive: #ef4444;
+  --destructive-foreground: #0f1419;
+
+  /* Borders for dark */
+  --border: #334155;
+  --input: #1e293b;
+  --input-background: #0f1419;
+  --switch-background: #14b8a6;
+
   --font-weight-medium: 600;
   --font-weight-normal: 400;
-  --ring: #0a84ff;
+  --ring: #3b82f6;
+
   /* Chart colors for dark mode */
-  --chart-1: #0a84ff;
-  --chart-2: #34c759;
-  --chart-3: #ff9500;
-  --chart-4: #ff3a30;
-  --chart-5: #bf5af0;
-  --sidebar: #1d1d1f;
-  --sidebar-foreground: #f5f5f7;
-  --sidebar-primary: #0a84ff;
-  --sidebar-primary-foreground: #000000;
-  --sidebar-accent: #2a2a2c;
-  --sidebar-accent-foreground: #f5f5f7;
-  --sidebar-border: #424245;
-  --sidebar-ring: #0a84ff;
+  --chart-1: #3b82f6;
+  --chart-2: #14b8a6;
+  --chart-3: #f97316;
+  --chart-4: #ef4444;
+  --chart-5: #a78bfa;
+
+  --sidebar: #1e293b;
+  --sidebar-foreground: #f1f5f9;
+  --sidebar-primary: #3b82f6;
+  --sidebar-primary-foreground: #0f1419;
+  --sidebar-accent: #334155;
+  --sidebar-accent-foreground: #f1f5f9;
+  --sidebar-border: #475569;
+  --sidebar-ring: #3b82f6;
 }
 
 @theme inline {

@@ -2,7 +2,6 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Palette } from 'lucide-react';
 
 const nav = [
   { href: '/', label: 'ホーム' },
@@ -19,29 +18,36 @@ export default function Header() {
     pathname === href || (href !== '/' && pathname.startsWith(href));
 
   return (
-    <header className="sticky top-0 z-50 bg-white border-b border-gray-200">
+    <header className="sticky top-0 z-50 bg-white border-b border-slate-200">
       <div className="mx-auto max-w-7xl px-6 lg:px-12">
-        <div className="flex items-center justify-between py-4">
-          {/* ロゴ */}
-          <Link href="/" className="flex items-center gap-3 group">
-            <span className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-slate-100 text-slate-900 transition-colors duration-200 group-hover:bg-slate-200">
-              <Palette className="h-5 w-5" />
-            </span>
-            <span className="text-base font-semibold text-slate-900">
+        <div className="flex items-center justify-between h-16">
+          {/* ロゴ・ブランディング */}
+          <Link
+            href="/"
+            className="flex flex-col leading-tight hover:opacity-80 transition-opacity"
+          >
+            <span className="text-xl font-bold text-slate-900">
               美術部
+            </span>
+            <span className="text-xs font-medium text-slate-600 uppercase tracking-wider">
+              Hitotsubashi × Tsuda
             </span>
           </Link>
 
           {/* ナビゲーション */}
-          <nav className="flex items-center gap-6">
+          <nav className="flex items-center gap-8">
             {nav.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
-                className={`text-sm font-medium transition-colors duration-200 ${
+                className={`text-sm font-medium transition-colors duration-200 relative ${
                   isActive(item.href)
-                    ? 'text-slate-900 font-semibold'
+                    ? 'text-slate-900'
                     : 'text-slate-600 hover:text-slate-900'
+                } ${
+                  isActive(item.href)
+                    ? 'after:absolute after:bottom-[-8px] after:left-0 after:right-0 after:h-0.5 after:bg-primary after:transition-all'
+                    : 'after:absolute after:bottom-[-8px] after:left-0 after:right-0 after:h-0.5 after:bg-primary after:scale-x-0 hover:after:scale-x-100 after:transition-transform'
                 }`}
               >
                 {item.label}

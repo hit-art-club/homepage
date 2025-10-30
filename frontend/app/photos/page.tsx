@@ -19,16 +19,17 @@ export default async function Photos() {
   });
 
   return (
-    <div className="px-4 py-24 sm:px-12 bg-white">
+    <div className="px-4 py-24 sm:px-12 sm:py-32 bg-white">
       <div className="mx-auto max-w-6xl">
-        <h1 className="text-4xl font-bold mb-12 text-slate-900">作品ギャラリー</h1>
+        <h1 className="text-5xl font-bold mb-4 text-slate-900">作品ギャラリー</h1>
+        <p className="text-lg text-slate-600 mb-12">部員たちの多様な作品をご紹介。それぞれのスタイルと表現をお楽しみください。</p>
         <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
           {data.contents.map((g) => {
             const thumb = g.images?.[0]?.url; // 先頭画像をサムネに
             return (
               <Link key={g.id} href={`/photos/${g.id}`} className="group">
                 {thumb && (
-                  <div className="aspect-[3/4] overflow-hidden rounded-2xl border border-gray-200 bg-gray-50 hover:border-gray-300 transition-all">
+                  <div className="aspect-[3/4] overflow-hidden rounded-xl border border-slate-200 bg-slate-50 hover:border-primary transition-all duration-300">
                     <Image
                       src={thumb}
                       alt={g.title}
@@ -38,7 +39,7 @@ export default async function Photos() {
                     />
                   </div>
                 )}
-                <p className="mt-4 font-semibold text-slate-900 group-hover:text-slate-600 transition">{g.title}</p>
+                <p className="mt-4 font-semibold text-slate-900 group-hover:text-primary transition">{g.title}</p>
                 {g.year && <p className="text-sm text-slate-600">{g.year}</p>}
               </Link>
             );

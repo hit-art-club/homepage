@@ -15,10 +15,10 @@ export default async function About() {
 
   if (!page) {
     return (
-      <article className="px-4 py-24 sm:px-12">
+      <article className="px-4 py-24 sm:px-12 sm:py-32">
         <div className="mx-auto max-w-4xl">
-          <h1 className="text-4xl font-bold mb-6">部活について</h1>
-          <p className="text-slate-600">「Pages」に slug=about の公開コンテンツが見つかりません。</p>
+          <h1 className="text-5xl font-bold mb-6 text-slate-900">部活について</h1>
+          <p className="text-slate-600 text-lg">「Pages」に slug=about の公開コンテンツが見つかりません。</p>
         </div>
       </article>
     );
@@ -28,9 +28,9 @@ export default async function About() {
   const isHtml = !!page.body && page.body.includes("<");
 
   return (
-    <article className="px-4 py-24 sm:px-12 bg-white">
+    <article className="px-4 py-24 sm:px-12 sm:py-32 bg-white">
       <div className="mx-auto max-w-4xl">
-        <h1 className="text-4xl font-bold mb-8 text-slate-900">{page.title}</h1>
+        <h1 className="text-5xl font-bold mb-8 text-slate-900">{page.title}</h1>
 
         {isHtml ? (
           <div
@@ -38,7 +38,7 @@ export default async function About() {
             dangerouslySetInnerHTML={{ __html: page.body! }}
           />
         ) : (
-          <p className="whitespace-pre-wrap leading-8 text-slate-600 text-base">{page.body}</p>
+          <p className="whitespace-pre-wrap leading-8 text-slate-600 text-lg">{page.body}</p>
         )}
       </div>
     </article>
