@@ -8,38 +8,75 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
+        // Primary: Rich deep blue (#1e40af) - Professional and trustworthy
         primary: {
-          DEFAULT: "rgb(var(--color-primary) / <alpha-value>)",
-          foreground: "rgb(var(--color-primary-foreground) / <alpha-value>)",
+          DEFAULT: "#1e40af",
+          50: "#eff6ff",
+          100: "#dbeafe",
+          200: "#bfdbfe",
+          300: "#93c5fd",
+          400: "#60a5fa",
+          500: "#3b82f6",
+          600: "#2563eb",
+          700: "#1d4ed8",
+          800: "#1e40af",
+          900: "#1e3a8a",
+          foreground: "#ffffff",
         },
+        // Secondary: Professional teal (#0d9488)
         secondary: {
-          DEFAULT: "rgb(var(--color-secondary) / <alpha-value>)",
-          foreground: "rgb(var(--color-secondary-foreground) / <alpha-value>)",
+          DEFAULT: "#0d9488",
+          50: "#f0fdfa",
+          100: "#d0f6f2",
+          200: "#a9ede9",
+          300: "#7eddd7",
+          400: "#58c8c5",
+          500: "#3db8b8",
+          600: "#2c9b91",
+          700: "#1f7f7a",
+          800: "#0d9488",
+          900: "#086d6a",
+          foreground: "#ffffff",
         },
+        // Tertiary: Warm orange accent (#ea580c)
         tertiary: {
-          DEFAULT: "rgb(var(--color-tertiary) / <alpha-value>)",
-          foreground: "rgb(var(--color-tertiary-foreground) / <alpha-value>)",
+          DEFAULT: "#ea580c",
+          50: "#fff7ed",
+          100: "#fed6b8",
+          200: "#fdb88e",
+          300: "#fd9a5a",
+          400: "#fc7d3b",
+          500: "#fa5a1d",
+          600: "#dc4713",
+          700: "#b73e0e",
+          800: "#973409",
+          900: "#7a2a06",
+          foreground: "#ffffff",
         },
+        // Muted grays for professional look
         muted: {
-          DEFAULT: "rgb(var(--color-muted) / <alpha-value>)",
-          foreground: "rgb(var(--color-muted-foreground) / <alpha-value>)",
+          DEFAULT: "#e2e8f0",
+          foreground: "#475569",
         },
+        // Accent backgrounds
         accent: {
-          DEFAULT: "rgb(var(--color-accent) / <alpha-value>)",
-          foreground: "rgb(var(--color-accent-foreground) / <alpha-value>)",
+          DEFAULT: "#f8fafc",
+          foreground: "#0f1419",
         },
+        // Destructive red
         destructive: {
-          DEFAULT: "rgb(var(--color-destructive) / <alpha-value>)",
-          foreground: "rgb(var(--color-destructive-foreground) / <alpha-value>)",
+          DEFAULT: "#dc2626",
+          foreground: "#ffffff",
         },
-        border: "rgb(var(--color-border) / <alpha-value>)",
-        input: "rgb(var(--color-input) / <alpha-value>)",
-        ring: "rgb(var(--color-ring) / <alpha-value>)",
+        // Border
+        border: "#e2e8f0",
+        input: "#ffffff",
+        ring: "#1e40af",
       },
       borderRadius: {
-        lg: "var(--radius-lg)",
-        md: "var(--radius-md)",
-        sm: "var(--radius-sm)",
+        lg: "0.75rem",
+        md: "0.5rem",
+        sm: "0.375rem",
       },
     },
   },
